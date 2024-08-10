@@ -18,7 +18,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { ModeToggle } from "@/components/mode-toggle";
 
-const Navbar = () => {
+const Header = () => {
   const pathname = usePathname();
   return (
     <div className="sticky top-0 z-10 flex flex-col border-b bg-background py-2">
@@ -34,7 +34,7 @@ const Navbar = () => {
             <SheetContent side="left" className="p-2 sm:max-w-xs">
               <nav className="grid gap-2 text-lg font-medium">
                 <p className="p-1 text-lg font-bold">Library</p>
-                {LinksItem.map((link, index) => {
+                {/* {LinksItem.map((link, index) => {
                   const Icon = link.icon;
 
                   const isActive =
@@ -53,7 +53,7 @@ const Navbar = () => {
                       {link.label}
                     </Link>
                   );
-                })}
+                })} */}
               </nav>
             </SheetContent>
           </Sheet>
@@ -98,4 +98,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

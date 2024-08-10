@@ -6,8 +6,13 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Label } from "@/components/ui/label";
 import FormGroup from "@/components/ui/form-group";
+import { Eye, EyeOff } from "lucide-react";
 
 const RegisterForm = () => {
+  const [isPassword, setIsPassword] = React.useState<boolean>(true);
+  const [isConfirmPassword, setIsConfirmPassword] =
+    React.useState<boolean>(true);
+
   return (
     <form className="space-y-4">
       <FormGroup>

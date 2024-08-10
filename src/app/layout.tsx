@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={GeistSans.className}>
+      <body className={(GeistSans.className, "bg-secondary")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

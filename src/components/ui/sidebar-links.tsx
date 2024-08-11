@@ -59,18 +59,13 @@ const LinksItemList = ({ links }: { links: LinksItemType }) => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
-  const isActive =
-    links.path === "/dashboard" && pathname === "/dashboard"
-      ? true
-      : links.path !== "/dashboard" && pathname.startsWith(links.path);
-
   const Icon = links.icon;
 
-  return links.list?.length && links.list.length > 1 ? (
+  return links.list?.length && links.list.length > 0 ? (
     <>
       <Button
         variant="ghost"
-        className={`text-muted-foreground hover:bg-transparent hover:text-primary ${isOpen && "text-primary/85"}`}
+        className={`text-muted-foreground hover:bg-transparent hover:text-primary ${isOpen ? "text-primary/85" : ""}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         {Icon && <Icon size={16} className="mr-4" />}
@@ -94,14 +89,14 @@ const LinksItemList = ({ links }: { links: LinksItemType }) => {
             className="overflow-hidden"
           >
             {links.list.map((item, index) => (
-              <LinksItem key={index} links={item} isActive={isActive} />
+              <LinksItem key={index} links={item} pathname={pathname} />
             ))}
           </motion.ul>
         )}
       </AnimatePresence>
     </>
   ) : (
-    <LinksItem links={links} isActive={isActive} />
+    <LinksItem links={links} pathname={pathname} />
   );
 };
 
@@ -109,14 +104,20 @@ export interface LinksItemProps extends React.HTMLAttributes<HTMLLIElement> {}
 
 const LinksItem = ({
   links,
-  isActive,
+  pathname,
   className,
   ...props
 }: {
   links: LinksItemType;
-  isActive: boolean;
+  pathname: string;
 } & LinksItemProps) => {
   const Icon = links.icon;
+
+  const isActive =
+    links.path === "/" && pathname === "/"
+      ? true
+      : links.path !== "/" && pathname.startsWith(links.path);
+
   return (
     <li
       className={cn(

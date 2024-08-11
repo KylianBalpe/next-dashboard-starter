@@ -1,4 +1,10 @@
-import { HomeIcon, LockIcon, LucideProps, Shield } from "lucide-react";
+import {
+  HomeIcon,
+  LockIcon,
+  LucideProps,
+  Shield,
+  SquareChartGanttIcon,
+} from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 type Icon = ForwardRefExoticComponent<
@@ -27,15 +33,15 @@ export const LinksItem: LinksType[] = [
       {
         label: "Menu Level",
         path: "#",
-        icon: HomeIcon,
+        icon: SquareChartGanttIcon,
         list: [
           {
             label: "List 1",
-            path: "#",
+            path: "/list1",
           },
           {
             label: "List 2",
-            path: "#",
+            path: "/list2",
           },
         ],
       },

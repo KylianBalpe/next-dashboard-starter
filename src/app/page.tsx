@@ -3,20 +3,17 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { LogInIcon } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
-import { GeistMono } from "geist/font/mono";
 
 const Home = async () => {
   return (
-    <div className="flex w-full flex-col items-center justify-center h-screen py-8 lg:py-24">
-      <div className="container w-full px-4 md:px-6 flex flex-col justify-center">
+    <div className="flex h-screen w-full flex-col items-center justify-center py-8 lg:py-24">
+      <div className="container flex w-full flex-col justify-center px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold sm:text-5xl xl:text-6xl text-center">
+            <h1 className="text-center text-3xl font-bold sm:text-5xl xl:text-6xl">
               NextJS Dashboard Starter
             </h1>
-            <p
-              className={`${GeistMono.className} text-muted-foreground md:text-2xl font-bold text-center`}
-            >
+            <p className="text-center font-bold text-muted-foreground md:text-2xl">
               NextJS, TypeScript, Tailwind CSS, Shadcn/ui.
             </p>
           </div>

@@ -10,12 +10,13 @@ import {
 import LoginForm from "@/components/authentication/login-form";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const Page = async () => {
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center gap-4 px-4 py-8 md:gap-8 lg:py-24 xl:gap-12">
-      <div className="flex w-full flex-col items-center gap-2 xl:gap-4">
-        <Card className="w-full sm:w-1/2 md:max-w-sm">
+    <div className="grid min-h-screen w-full grid-cols-1 lg:grid-cols-2">
+      <div className="flex h-full flex-col items-center justify-center gap-4">
+        <Card className="w-full md:max-w-md">
           <CardHeader>
             <CardTitle className="text-2xl">Login</CardTitle>
             <CardDescription>
@@ -30,6 +31,13 @@ const Page = async () => {
           <Link href="/">Return to home</Link>
         </Button>
       </div>
+      <Image
+        src="/placeholder.svg"
+        alt="placeholder"
+        width={1080}
+        height={1080}
+        className="hidden h-screen overflow-hidden object-cover lg:block"
+      />
     </div>
   );
 };

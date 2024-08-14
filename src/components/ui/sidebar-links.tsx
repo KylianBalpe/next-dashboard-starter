@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -24,25 +23,17 @@ export default function SidebarLinksItem({ link }: { link: LinksType }) {
 
 export interface LinkGroupProps extends React.HTMLAttributes<HTMLLIElement> {}
 
-const LinkGroup = ({ className, ...props }: LinkGroupProps) => {
-  return (
-    <li
-      className={cn("flex w-full flex-col items-start gap-2", className)}
-      {...props}
-    />
-  );
+const LinkGroup = ({ ...props }: LinkGroupProps) => {
+  return <li className="flex w-full flex-col items-start gap-2" {...props} />;
 };
 
 export interface LinkCategoryProps
   extends React.HTMLAttributes<HTMLParagraphElement> {}
 
-const LinkCategory = ({ className, ...props }: LinkCategoryProps) => {
+const LinkCategory = ({ ...props }: LinkCategoryProps) => {
   return (
     <p
-      className={cn(
-        "w-full px-4 text-xs font-bold uppercase text-muted-foreground",
-        className,
-      )}
+      className="w-full px-4 text-xs font-bold uppercase text-muted-foreground"
       {...props}
     />
   );
@@ -51,8 +42,8 @@ const LinkCategory = ({ className, ...props }: LinkCategoryProps) => {
 export interface LinksListProps
   extends React.HTMLAttributes<HTMLUListElement> {}
 
-const LinksList = ({ className, ...props }: LinksListProps) => {
-  return <ul className={cn("flex w-full flex-col", className)} {...props} />;
+const LinksList = ({ ...props }: LinksListProps) => {
+  return <ul className="flex w-full flex-col" {...props} />;
 };
 
 const LinksItemList = ({ links }: { links: LinksItemType }) => {
@@ -105,7 +96,6 @@ export interface LinksItemProps extends React.HTMLAttributes<HTMLLIElement> {}
 const LinksItem = ({
   links,
   pathname,
-  className,
   ...props
 }: {
   links: LinksItemType;
@@ -120,10 +110,7 @@ const LinksItem = ({
 
   return (
     <li
-      className={cn(
-        `${isActive ? "border-l-primary text-primary" : "border-l-transparent text-muted-foreground"} inline-flex w-full items-center border-l-4 px-3 py-2 text-sm font-medium transition-colors duration-150 ease-in hover:text-primary`,
-        className,
-      )}
+      className={`${isActive ? "border-l-primary text-primary" : "border-l-transparent text-muted-foreground"} inline-flex w-full items-center border-l-4 px-3 py-2 text-sm font-medium transition-colors duration-150 ease-in hover:text-primary`}
       {...props}
     >
       <Link href={links.path} className="inline-flex items-center">

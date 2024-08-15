@@ -69,4 +69,16 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  ::-webkit-scrollbar {
+    @apply w-[5px]
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-accent-foreground/10;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent-foreground/20;
+  }
 }
